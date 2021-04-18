@@ -1,1 +1,4 @@
+build/*.zip
 vendor
+package-lock.json
+yarn.lock

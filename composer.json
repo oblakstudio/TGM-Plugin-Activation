@@ -1,0 +1,18 @@
+{
+    "name": "oblak/tgm-plugin-activation",
+    "description": "TGM Plugin Activation is a PHP library that allows you to easily require or recommend plugins for your WordPress themes (and plugins)",
+    "license": "GPL-2.0-only",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "Oblak\\TGMPA\\": "src/"
+        },
+        "files" :[
+            "tgmpa.php",
+            "src/Utils/helpers.php"
+        ]
+    },
+    "require": {
+        "php": ">=7.3"
+    }
+}

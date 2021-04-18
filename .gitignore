@@ -1,4 +1,5 @@
 build/*.zip
+node_modules
 vendor
 package-lock.json
 yarn.lock

@@ -104,12 +104,12 @@ class BasePlugin implements PluginInterface
 
     public function getImage()
     {
-    
+
         if ( !is_null($this->image)) :
             return $this->image;
         endif;
 
-        return ( $this->getSource() === 'repo' ) 
+        return ( $this->getSource() === 'repo' )
             ? $this->getRepoImage()
             : self::$tgmpa_config['default_image'];
 
@@ -150,8 +150,8 @@ class BasePlugin implements PluginInterface
             $package_url = $repo_data['download_link'];
 
             $upgrader = new Plugin_Upgrader();
-            
-            $result = $upgrader->install($package_url);
+
+            $upgrader->install($package_url);
 
             return;
 
@@ -162,8 +162,8 @@ class BasePlugin implements PluginInterface
         if (!filter_var($source, FILTER_VALIDATE_URL)) :
 
             $upgrader = new Plugin_Upgrader();
-            
-            $result = $upgrader->install($source);
+
+            $upgrader->install($source);
 
             return;
 
@@ -184,7 +184,7 @@ class BasePlugin implements PluginInterface
         if ( $this->getSource() === 'repo') :
 
             $upgrader = new Plugin_Upgrader();
-            
+
             $result = $upgrader->upgrade($plugin_slug);
 
             return;
@@ -238,7 +238,7 @@ class BasePlugin implements PluginInterface
         $filtered = $this->getPluginData();
 
         return !empty($filtered);
-        
+
     }
 
     public function isActivated()
@@ -308,7 +308,7 @@ class BasePlugin implements PluginInterface
 
         $code = $headers['response']['code'];
 
-        return ($code == 200) 
+        return ($code == 200)
             ? "https://ps.w.org/{$this->getSlug()}/assets/icon-256x256.png"
             : "https://s.w.org/plugins/geopattern-icon/{$this->getSlug()}.svg";
 
@@ -330,7 +330,7 @@ class BasePlugin implements PluginInterface
                 $plugin_data['AuthorURI'],
                 $plugin_data['Author']
             );
-        
+
         endif;
 
         if ( !is_null($this->repo_data)) :
@@ -355,7 +355,7 @@ class BasePlugin implements PluginInterface
             $plugin_data = reset($this->getPluginData());
 
             return $plugin_data['Version'];
-        
+
         endif;
 
         if ( !is_null($this->repo_data)) :
@@ -378,5 +378,5 @@ class BasePlugin implements PluginInterface
 
         return json_decode($repo_data['body'], true);;
     }
-    
+
 }
